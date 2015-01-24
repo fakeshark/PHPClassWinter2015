@@ -32,12 +32,12 @@
                 }
 	?>
         
-        <?php   if (empty($error_message)) {
-                    echo "<br />"; 
+        <?php   if ( empty($error_message) ) {
+                        echo "<p>&nbsp;</p>"; 
                 } else {
-                    echo $error_message." <br />";
-                    include 'form.html';
-                    exit();
+                        echo "<p> ".$error_message." <p/>";
+                        include 'form.html';
+                        exit();
                 }                
         ?>
         
