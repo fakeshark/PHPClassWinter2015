@@ -8,32 +8,40 @@
 <body>
     <div id="content">
         <h1>Product Discount Calculator</h1>
-
         <?php 
 		$prodDesc = $_POST['product_description'];
 		$listPrice = $_POST['list_price'];
 		$discPercent = $_POST['discount_percent'];
 		$discount_price_formatted = ($listPrice - (( $discPercent / 100 ) * $listPrice ));
 		$discount_formatted = $listPrice - $discount_price_formatted;
-                
-    if (empty($prodDesc)){
-        $error_message="Product Descrpition is a required field.";
-    }else if (!is_string($prodDesc)){
-        $error_message = "Product Descrpition contains invalid data.";
-    }else if (!is_numeric($listPrice)){
-        $error_message = "List Price must be a number.";
-    }else if (!is_numeric($discount_percent_formatted)){
-        $error_message = "List Price must be a number.";
-    }else{
-        $error_message = '';}
+		
+		if (empty($prodDesc)) {
+			$error_message  =    "Product Description is a required field.";
+		} else if (!is_string($prodDesc)) {
+			$error_message  =    "Product Description must contain valid data.";
+		} else if (empty($listPrice)) {
+			$error_message  =    "List price is a required field.";
+		} else if (!is_numeric($listPrice)) {
+			$error_message  =    "List price must be a valid number.";
+		} else if (empty($discPercent)) {
+			$error_message  =    "Discount percent is a required field.";
+		} else if (!is_numeric($discPercent)) {
+			$error_message  =    "Discount Percent must be a valid number.";
+                } else { 
+                        $error_message  =    ""; 
+                }
+	?>
         
-    echo $error_message;
-    
-    if ($error_message != '') {
-        include('index.php');
-        exit();}
-    ?>
-
+        <?php   if ( empty($error_message) ) {
+                        echo "<p>&nbsp;</p>"; 
+                } else {
+                        echo "<p> ".$error_message." <p/>";
+                        include 'form.html';
+                        exit();
+                }                
+        ?>
+        
+		
         <label>Product Description:</label>
         <span><?php echo $prodDesc; ?></span><br />
 
