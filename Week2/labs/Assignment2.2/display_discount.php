@@ -36,7 +36,7 @@
                         echo "<p>&nbsp;</p>"; 
                 } else {
                         echo "<p> ".$error_message." <p/>";
-                        include 'form.html';
+                        include 'form.php';
                         exit();
                 }                
         ?>
