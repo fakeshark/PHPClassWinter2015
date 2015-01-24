@@ -14,21 +14,25 @@
 		$discPercent = $_POST['discount_percent'];
 		$discount_price_formatted = ($listPrice - (( $discPercent / 100 ) * $listPrice ));
 		$discount_formatted = $listPrice - $discount_price_formatted;
+                $error_message = "";
 		
 		if (empty($prodDesc)) {
-			$error_message  =    "<p>Product Description is a required field.</p>";
-		} else if (!is_string($prodDesc)) {
-			$error_message  .=    "<p>Product Description must contain valid data.</p>";
-		} else if (empty($listPrice)) {
-			$error_message  .=    "<p>List price is a required field.</p>";
-		} else if (!is_numeric($listPrice)) {
-			$error_message  .=    "<p>List price must be a valid number.</p>";
-		} else if (empty($discPercent)) {
-			$error_message  .=    "<p>Discount percent is a required field.</p>";
-		} else if (!is_numeric($discPercent)) {
-			$error_message  .=    "<p>Discount Percent must be a valid number.</p>";
-                } else { 
-                        $error_message  =    ""; 
+			$error_message  = $error_message."<p>Product Description is a required field.</p>";
+		} 
+                if (!is_string($prodDesc)) {
+			$error_message  = $error_message."<p>Product Description must contain valid data.</p>";
+		} 
+                if (empty($listPrice)) {
+			$error_message  = $error_message."<p>List price is a required field.</p>";
+		} 
+                if (!is_numeric($listPrice)) {
+			$error_message  = $error_message."<p>List price must be a valid number.</p>";
+		} 
+                if (empty($discPercent)) {
+			$error_message  = $error_message."<p>Discount percent is a required field.</p>";
+		} 
+                if (!is_numeric($discPercent)) {
+			$error_message  = $error_message."<p>Discount Percent must be a valid number.</p>";
                 }
 	?>
         
