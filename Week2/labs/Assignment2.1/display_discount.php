@@ -14,8 +14,26 @@
 		$discPercent = $_POST['discount_percent'];
 		$discount_price_formatted = ($listPrice - (( $discPercent / 100 ) * $listPrice ));
 		$discount_formatted = $listPrice - $discount_price_formatted;
-		?>
-
+		
+		if (empty($prodDesc)) {
+			$error_message  =    "Product Description is a required field.";
+		} else if (!is_string($prodDesc)) {
+			$error_message  =    "Product Description must contain valid data.";
+		} else if (empty($listPrice)) {
+			$error_message  =    "List price is a required field.";
+		} else if (!is_numeric($listPrice)) {
+			$error_message  =    "List price must be a valid number.";
+		} else if (empty($discPercent)) {
+			$error_message  =    "Discount percent is a required field.";
+		} else if (!is_numeric($discPercent)) {
+			$error_message  =    "Discount Percent must be a valid number.";
+                } else { 
+                        $error_message  =    ""; 
+                }
+	?>
+        
+        
+		<?php echo $error_message; ?>
         <label>Product Description:</label>
         <span><?php echo $prodDesc; ?></span><br />
 
