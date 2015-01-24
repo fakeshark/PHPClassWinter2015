@@ -32,7 +32,15 @@
                 }
 	?>
         
-        <?php echo $error_message."<br />"; ?>
+        <?php   if (empty($error_message)) {
+                    echo "<br />"; 
+                } else {
+                    echo $error_message." <br />";
+                    include 'form.html';
+                    exit();
+                }                
+        ?>
+        
 		
         <label>Product Description:</label>
         <span><?php echo $prodDesc; ?></span><br />
