@@ -32,8 +32,8 @@
                 }
 	?>
         
-        
-		<?php echo $error_message; ?>
+        <?php echo $error_message."<br />"; ?>
+		
         <label>Product Description:</label>
         <span><?php echo $prodDesc; ?></span><br />
 
