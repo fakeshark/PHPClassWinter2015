@@ -43,8 +43,7 @@
                         include 'form.php';
                         exit();
                 }                
-        ?>
-        
+        ?>        
 		
         <label>Product Description:</label>
         <span><?php echo $prodDesc; ?></span><br />
@@ -63,5 +62,6 @@
         <a href="index.php" target="_self">Reset Form</a>
         <p>&nbsp;</p>
     </div>
+    
 </body>
 </html>
