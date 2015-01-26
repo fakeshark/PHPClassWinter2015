@@ -37,20 +37,11 @@ $categories = $db->query($query);
                 </select>
                 <br />
 
-                <label>Code:</label>
-                <input type="input" name="code" />
-                <br />
-
-                <label>Name:</label>
+                <label>Category Name:</label>
                 <input type="input" name="name" />
                 <br />
-
-                <label>List Price:</label>
-                <input type="input" name="price" />
-                <br />
-
                 <label>&nbsp;</label>
-                <input type="submit" value="Add Product" />
+                <input type="submit" value="Add" />
                 <br />
             </form>
             <p><a href="index.php">View Product List</a></p>
