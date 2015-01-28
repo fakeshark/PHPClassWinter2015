@@ -18,7 +18,7 @@
             
              $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
   
-            $dbs = $db->prepare('insert demo set fullname = :fullname, phone = :phone, email = :email, zip = :zip');  
+            $dbs = $db->prepare('insert users set fullname = :fullname, phone = :phone, email = :email, zip = :zip');  
             //collect the data to bind
             $name = $_POST['fullname'];
             $phone = $_POST['phone'];
@@ -39,7 +39,7 @@
                   
         ?>
         
-        <!-- <a href="add-user.php">Add user</a> -->
+        <a href="simpleDataCollectionForm.php">Add user</a>
         <a href="simpleDataCollectionDisplay.php">View users</a>
     </body>
 </html>
