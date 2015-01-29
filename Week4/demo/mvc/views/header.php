@@ -15,3 +15,4 @@
         <li><a href="?view=all">All Page</a></li>
         <li><a href="?view=details">Details Page</a></li>
     </ul>
+    
