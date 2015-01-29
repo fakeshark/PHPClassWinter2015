@@ -14,36 +14,32 @@
 		$discPercent = $_POST['discount_percent'];
 		$discount_price_formatted = ($listPrice - (( $discPercent / 100 ) * $listPrice ));
 		$discount_formatted = $listPrice - $discount_price_formatted;
-                $error_message = "";
 		
 		if (empty($prodDesc)) {
-			$error_message  = $error_message."<p>Product Description is a required field.</p>";
-		} 
-                if (!is_string($prodDesc)) {
-			$error_message  = $error_message."<p>Product Description must contain valid data.</p>";
-		} 
-                if (empty($listPrice)) {
-			$error_message  = $error_message."<p>List price is a required field.</p>";
-		} 
-                if (!is_numeric($listPrice)) {
-			$error_message  = $error_message."<p>List price must be a valid number.</p>";
-		} 
-                if (empty($discPercent)) {
-			$error_message  = $error_message."<p>Discount percent is a required field.</p>";
-		} 
-                if (!is_numeric($discPercent)) {
-			$error_message  = $error_message."<p>Discount Percent must be a valid number.</p>";
+			$error_message  =    "Product Description is a required field.";
+		} else if (!is_string($prodDesc)) {
+			$error_message  =    "Product Description must contain valid data.";
+		} else if (empty($listPrice)) {
+			$error_message  =    "List price is a required field.";
+		} else if (!is_numeric($listPrice)) {
+			$error_message  =    "List price must be a valid number.";
+		} else if (empty($discPercent)) {
+			$error_message  =    "Discount percent is a required field.";
+		} else if (!is_numeric($discPercent)) {
+			$error_message  =    "Discount Percent must be a valid number.";
+                } else { 
+                        $error_message  =    ""; 
                 }
 	?>
         
-        <?php   if ( empty($error_message) ) {
-                        echo "<p>&nbsp;</p>"; 
-                } else {
-                        echo "<p> ".$error_message." <p/>";
-                        include 'form.php';
-                        exit();
+        <?php   if ( !empty($error_message) ) {
+                echo "<p>&nbsp;</p>"; 
+                echo "<p> ".$error_message." <p/>";
+                include 'form.html';
+                exit();
                 }                
-        ?>        
+        ?>
+        
 		
         <label>Product Description:</label>
         <span><?php echo $prodDesc; ?></span><br />
@@ -59,10 +55,8 @@
 
         <label>Discount Price:</label>
         <span><?php	echo '$'.number_format((float)$discount_price_formatted, 2, '.', ''); ?></span><br />
-        <br /><?php echo date('m/d/Y h:i:sa') ?><br />
-        <a href="index.php" target="_self">Reset Form</a>
+
         <p>&nbsp;</p>
     </div>
-    
 </body>
 </html>
