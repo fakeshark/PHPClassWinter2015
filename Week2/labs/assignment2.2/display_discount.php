@@ -17,29 +17,27 @@
                 $error_message = "";
 		
 		if (empty($prodDesc)) {
-			$error_message  = $error_message."<p>Product Description is a required field.</p>";
+			$error_message  .= "Product Description is a required field.<br />";
 		} 
                 if (!is_string($prodDesc)) {
-			$error_message  = $error_message."<p>Product Description must contain valid data.</p>";
+			$error_message  .= "Product Description must contain valid data.<br />";
 		} 
                 if (empty($listPrice)) {
-			$error_message  = $error_message."<p>List price is a required field.</p>";
+			$error_message  .= "List price is a required field.<br />";
 		} 
                 if (!is_numeric($listPrice)) {
-			$error_message  = $error_message."<p>List price must be a valid number.</p>";
+			$error_message  .= "List price must be a valid number.<br />";
 		} 
                 if (empty($discPercent)) {
-			$error_message  = $error_message."<p>Discount percent is a required field.</p>";
+			$error_message  .= "Discount percent is a required field.<br />";
 		} 
                 if (!is_numeric($discPercent)) {
-			$error_message  = $error_message."<p>Discount Percent must be a valid number.</p>";
+			$error_message  .= "Discount Percent must be a valid number.<br />";
                 }
 	?>
         
-        <?php   if ( empty($error_message) ) {
-                        echo "<p>&nbsp;</p>"; 
-                } else {
-                        echo "<p> ".$error_message." <p/>";
+        <?php   if ( !empty($error_message) ) {
+                    echo '<p class="error">'.$error_message.'</p>';
                         include 'form.php';
                         exit();
                 }                
@@ -59,7 +57,9 @@
 
         <label>Discount Price:</label>
         <span><?php	echo '$'.number_format((float)$discount_price_formatted, 2, '.', ''); ?></span><br />
-        <br /><?php echo date('m/d/Y h:i:sa') ?><br />
+        <br />
+            <?php date_default_timezone_set("America/New_York"); ?>
+            <?php echo date('m/d/Y h:i:sa') ?><br />
         <a href="index.php" target="_self">Reset Form</a>
         <p>&nbsp;</p>
     </div>
