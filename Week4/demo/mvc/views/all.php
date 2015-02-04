@@ -9,4 +9,4 @@
         echo '<p><a href="?view=details&id=',$value['id'],'">', $value['name'], '</a></p>';
         
     } 
-?>
+

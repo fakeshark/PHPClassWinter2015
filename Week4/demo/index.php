@@ -1,6 +1,6 @@
 <?php
-    include_once './views/header.php';
+    include_once './mvc/views/header.php';
     
     
     
-    include_once './views/footer.php';
+    include_once './mvc/views/footer.php';
