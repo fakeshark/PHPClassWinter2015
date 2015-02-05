@@ -32,8 +32,15 @@
             <th>Name</th>
             <th>&nbsp;</th>
         </tr>
-        
-    <!-- add code for the rest of the table here -->
+    <?php foreach ($categories as $category) : ?>
+                <tr>
+                    <td><?php echo $category['categoryName']; ?></td>
+                    <td><form action="delete_category.php" method="post" id="delete_category_form">
+                        <input type="hidden" name="category_id" value="<?php echo $category['categoryID']; ?>" />
+                        <input type="submit" value="Delete" />
+                    </form></td>
+                </tr>
+    <?php endforeach; ?>
     
     </table>
     <br />
@@ -41,7 +48,18 @@
     <h2>Add Category</h2>
     
     <!-- add code for the form here -->
-    
+                <form action="add_category.php" method="post"
+                  id="add_category_form">
+
+                <label>Category Name:</label>
+                <input type="input" name="categoryName" />
+                <br />
+                
+                <label>&nbsp;</label>
+                <input type="submit" value="Add Category" />
+                <br />
+            </form>
+
     <br />
     <p><a href="index.php">List Products</a></p>
 
