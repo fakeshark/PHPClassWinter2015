@@ -48,13 +48,11 @@
     <h2>Add Category</h2>
     
     <!-- add code for the form here -->
-                <form action="add_category.php" method="post"
+            <form action="add_category.php" method="post"
                   id="add_category_form">
 
                 <label>Category Name:</label>
-                <input type="input" name="categoryName" />
-                <br />
-                
+                <input type="input" name="categoryName" />&nbsp;&nbsp;                
                 <label>&nbsp;</label>
                 <input type="submit" value="Add Category" />
                 <br />

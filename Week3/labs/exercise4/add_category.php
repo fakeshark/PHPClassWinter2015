@@ -16,7 +16,7 @@ if ( empty($categoryName) ) {
                  ('$categoryName')";
     $db->exec($query);
 
-    // Display the Product List page
-    include('index.php');
+    // Display the category List page
+    include('category_list.php');
 }
 ?>

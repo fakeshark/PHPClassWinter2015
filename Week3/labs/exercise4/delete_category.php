@@ -9,5 +9,5 @@ $query = "DELETE FROM categories
 $db->exec($query);
 
 // display the Product List page
-include('index.php');
+include('category_list.php');
 ?>
