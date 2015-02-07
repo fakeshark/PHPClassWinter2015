@@ -13,7 +13,7 @@ and open the template in the editor.
     <body>
 <?php   $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
         $dbs = $db->prepare('select * from users');  
-        
+        $rownum = 0;
     
     if ( $dbs->execute() && $dbs->rowCount() > 0 ) {
           
@@ -30,7 +30,7 @@ and open the template in the editor.
                 </tr>
             <?php foreach ($users as $user): ?>
                 <tr>
-                    <td><?php echo $user['id']; ?></td>
+                    <td><?php $rownum += 1; echo $rownum; ?></td>
                     <td><?php echo $user['fullname']; ?></td>
                     <td><?php echo $user['phone']; ?></td>
                     <td><?php echo $user['email']; ?></td>

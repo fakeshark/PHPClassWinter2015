@@ -38,7 +38,22 @@
                 
                 if (!is_numeric($phone)) {
 			$error_message  .= "Phone must be a valid number.<br />";
-                }           
+                } 
+                
+                if (empty($email)) {
+			$error_message  .= "Email is a required field.<br />";
+		} 
+                
+                if (empty($zip)) {
+			$error_message  .= "Zip code is a required field.<br />";
+		}
+                if (!is_numeric($zip)) {
+			$error_message  .= "Zip code must be a valid number.<br />";
+		}
+                if (strlen($zip) != 5) {
+			$error_message  .= "Zip code must be 5 characters long.<br />";
+		}
+
 
              if ( !empty($error_message) ) {
              echo $error_message;
