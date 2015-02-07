@@ -2,9 +2,9 @@
     require_once('database.php');
 
     // Get category ID
-    if(!isset($category_id)) {
+    if(!isset( $category_id )) {
         $category_id = $_GET['category_id'];
-        if (!isset($category_id)) {
+        if (!isset( $category_id )) {
             $category_id = 1;
         }
     }
