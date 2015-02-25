@@ -10,9 +10,9 @@ switch ($action) {
         $message = 'Enter some data and click on the Submit button.';
         break;
     case 'process_data':
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
+        $name = filter_input(INPUT_POST, 'name');
+        $email = filter_input(INPUT_POST, 'email');
+        $phone = filter_input(INPUT_POST, 'phone');
         $error_message = "";
 
         /*************************************************
@@ -72,7 +72,7 @@ switch ($action) {
         /*************************************************
          * Display the validation message
          ************************************************/
-        $message =  "Hello $firstName,
+        $message =  "Hello $fName,
             
                     Thank you for entering this data:
                     
