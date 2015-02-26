@@ -52,16 +52,32 @@
 
 	        if ( !empty($error_message) ) {
             echo $error_message;
-            include './login.php';
+            include './signup.php';
             exit(); 
             }
 
            	// If form data is valid, attempt to add record to database.
 		// bind the data before you execute
-
-            $password = sha1($password);
+            
+            //Check if email already exists in database
             
             $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
+
+                $query = "SELECT * FROM signup where email == (email) VALUES ('$email')";
+                
+            $db->exec($query);
+            
+            if ( $db->rowCount() > 0 ) {
+            	$error_message  .= "That user/email already exists in the database.<br />";
+            }
+	        // Display error messages (if any) and re-display the form.
+
+	        if ( !empty($error_message) ) {
+            echo $error_message;
+            include './signup.php';
+                exit();}
+
+            $password = sha1($password);
 
             $dbs = $db->prepare('insert signup set email = :email, password = :password');  
 
@@ -76,6 +92,6 @@
             	echo '<h1> user ',$email, ' and password <strong>NOT</strong> added</h1>';
             }                  
         ?>
-        <a href="login.php">Return to login page</a>
+        <a href="signup.php">Return to login page</a>
     </body>
-</html> 
+</html>

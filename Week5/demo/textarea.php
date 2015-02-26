@@ -16,7 +16,7 @@
         ?>
                 
         <form action="#" method="post">            
-        <textarea name="comments"><?php echo $comments; ?></textarea>
+        <textarea name="comments"><?php echo nl2br($comments); ?></textarea>
         <input type="submit" value="submit" />         
         </form>
         
