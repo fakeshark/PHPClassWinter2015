@@ -7,11 +7,10 @@
     <body>
         Sign-up!!<br /><br />
         <?php
-        $email      = filter_input(INPUT_POST, 'email');
-        $password   = filter_input(INPUT_POST, 'password');
+        $email = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
         ?>
         <form action="signupadd.php" method="post" >
-
             email:<input type="text" name="email" value="<?php echo $email; ?>" /><br /><br />
             password:<input type="password" name="password" value="<?php echo $password; ?>" /><br /><br />
             <input type="submit" value="Submit" />
