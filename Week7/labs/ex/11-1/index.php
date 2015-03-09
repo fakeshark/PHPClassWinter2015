@@ -1,7 +1,7 @@
 <?php
+
 //get tasklist array from POST
-$task_list = filter_input(INPUT_POST, 'tasklist', FILTER_DEFAULT, 
-        FILTER_REQUIRE_ARRAY);
+$task_list = filter_input(INPUT_POST, 'tasklist', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
 if ($task_list === NULL) {
     $task_list = array();
     $task_list[] = 'Write chapter';
@@ -16,7 +16,7 @@ $action = filter_input(INPUT_POST, 'action');
 $errors = array();
 
 //process
-switch( $action ) {
+switch ($action) {
     case 'Add Task':
         $new_task = filter_input(INPUT_POST, 'newtask');
         if (empty($new_task)) {
@@ -48,8 +48,8 @@ switch( $action ) {
         $modified_task = filter_input(INPUT_POST, 'modifiedtask');
         if (empty($modified_task)) {
             $errors[] = 'The modified task cannot be empty.';
-        } elseif($i === NULL || $i === FALSE) {
-            $errors[] = 'The task cannot be modified.';        
+        } elseif ($i === NULL || $i === FALSE) {
+            $errors[] = 'The task cannot be modified.';
         } else {
             $task_list[$i] = $modified_task;
             $modified_task = '';
@@ -67,10 +67,10 @@ switch( $action ) {
         } else {
             // get the values for the two indexes
             $task_value = $task_list[$task_index];
-            $prior_task_value = $task_list[$task_index-1];
+            $prior_task_value = $task_list[$task_index - 1];
 
             // swap the values
-            $task_list[$task_index-1] = $task_value;
+            $task_list[$task_index - 1] = $task_value;
             $task_list[$task_index] = $prior_task_value;
             break;
         }
