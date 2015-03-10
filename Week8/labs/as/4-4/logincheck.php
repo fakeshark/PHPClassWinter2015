@@ -35,6 +35,11 @@
         }
         
         $results = checkUserLogin($email, $password);
+        if ( $results == 'Login Successful!<br />' )   {
+                $_SESSION['loggedIn'] = true;
+            } else {
+                $_SESSION['loggedIn'] = false;        
+            }
         echo $results;
 
         ?>

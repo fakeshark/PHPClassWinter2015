@@ -12,6 +12,10 @@
     <body>
         <?php
         include_once './header.php';
+        
+        session_start();
+        $_SESSION['loggedin'] = false;
+        
         if (!empty($_POST)) {
             $email = filter_input(INPUT_POST, 'email');
             $password = filter_input(INPUT_POST, 'password');

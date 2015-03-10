@@ -10,11 +10,6 @@
         <?php
         include_once './header.php';
             
-    if ( isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true ) {
-        echo 'you are logged in';
-    } else {
-        echo 'you are not logged in';
-    }
         $email = filter_input(INPUT_POST, 'email');
         $password = filter_input(INPUT_POST, 'password');
         ?>

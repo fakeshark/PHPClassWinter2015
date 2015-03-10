@@ -1,12 +1,15 @@
 <?php
-    
-if ( isset($_SESSION['loggedin']) &&
-        $_SESSION['loggedin'] === true ) {
-   echo '<a href="?logout=1">Logout</a>';
+
+if (isset($_SESSION['loggedIn']) &&
+        $_SESSION['loggedIn'] === true) {
+    echo '<a href="?logout=1">Logout</a>';
+} else {
+    echo '<a href="signup.php">Sign Up</a><br />
+           <a href="login.php">Login</a>';
 }
-    $logout = filter_input(INPUT_GET, 'logout');
-   
-    if ( $logout == 1 ) {
-       $_SESSION['loggedin'] = false;
-    }
+$logOut = filter_input(INPUT_GET, 'logOut');
+
+if ($logOut == 1) {
+    $_SESSION['loggedIn'] = false;
+}
 ?>
