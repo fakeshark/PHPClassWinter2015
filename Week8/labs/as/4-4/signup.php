@@ -9,7 +9,8 @@
         Sign-up!!<br /><br />
         <?php
         include_once './header.php';
-            
+
+
         $email = filter_input(INPUT_POST, 'email');
         $password = filter_input(INPUT_POST, 'password');
         ?>

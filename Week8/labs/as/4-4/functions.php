@@ -74,6 +74,7 @@ function checkUserLogin($email, $password) {
 
     // When you execute remember that a rowcount means a change was made
     if ($dbs->execute() && $dbs->rowCount() > 0) {
+            $_SESSION["LoggedInName"] = $email;
         return 'Login Successful!<br />';
     } else {
         return 'Login Failed.<br />';
@@ -81,5 +82,5 @@ function checkUserLogin($email, $password) {
 }
 
 function loggedOut() {
-    $_SESSION['loggedin'] = false;
+    $_SESSION['loggedIn'] = false;
 }

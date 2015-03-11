@@ -12,11 +12,11 @@
     <body>
         <?php
         include_once './header.php';
+                
+        var_dump($_SESSION['SessionMsg']);
+        var_dump($_SESSION['loggedIn']);
         
-        session_start();
-        $_SESSION['loggedin'] = false;
-        
-        if (!empty($_POST)) {
+if (!empty($_POST)) {
             $email = filter_input(INPUT_POST, 'email');
             $password = filter_input(INPUT_POST, 'password');
         } else {
