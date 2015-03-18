@@ -66,7 +66,7 @@ function checkUserLogin($email, $password) {
     $passwordHash = sha1($password);
 
     $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
-    $dbs = $db->prepare('SELECT * FROM signup WHERE email = :email and password = :password');
+    $dbs = $db->prepare('SELECT * FROM signup WHERE email = :email AND password = :password');
 
     // you must bind the data before you execute
     $dbs->bindParam(':email', $email, PDO::PARAM_STR);
@@ -74,8 +74,8 @@ function checkUserLogin($email, $password) {
 
     // When you execute remember that a rowcount means a change was made
     if ($dbs->execute() && $dbs->rowCount() > 0) {
-        return 'Login Successful!<br />';
+        return true;
     } else {
-        return 'Login Failed.<br />';
+        return false;
     }
 }
