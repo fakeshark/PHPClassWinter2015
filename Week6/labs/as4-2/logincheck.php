@@ -80,7 +80,7 @@
             echo 'User NOT authenticated';
         }
         ?>
-        <a href="signup.php">Return to login page</a>
+        <a href="login.php">Return to login page</a>
     </body>
 </html>
 

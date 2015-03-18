@@ -67,7 +67,7 @@
         // remember to change the port
 
         $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
-        $dbs = $db->prepare('insert into signup set email = :email, password =:password');
+        $dbs = $db->prepare('insert into signup set email = :email, password = :password');
 
         // you must bind the data before you execute
         $dbs->bindParam(':email', $email, PDO::PARAM_STR);
