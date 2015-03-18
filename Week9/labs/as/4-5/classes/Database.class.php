@@ -2,7 +2,7 @@
 
 class Database {
 
-    function checkUserLogin($email, $pass) {
+    public function checkUserLogin($email, $pass) {
 
         // Encrypt the password before adding to database.
         $pass = sha1($pass);
@@ -22,7 +22,7 @@ class Database {
         }
     }
 
-    function insertUser($email, $pass) {
+    public function insertUser($email, $pass) {
 
         // Encrypt the password before adding to database.
         $pass = sha1($pass);

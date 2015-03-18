@@ -27,7 +27,7 @@
  */
 class Validation {
 
-    function emailIsNotEmpty($email) {
+    public function emailIsNotEmpty($email) {
         if (!empty($email)) {
             return true;
         } else {
@@ -35,7 +35,7 @@ class Validation {
         }
     }
 
-    function emailIsValid($email) {
+    public function emailIsValid($email) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL) != false) {
             return true;
         } else {
@@ -43,7 +43,7 @@ class Validation {
         }
     }
 
-    function doesEmailExist($email) {
+    public function doesEmailExist($email) {
         $db = new PDO("mysql:host=localhost;dbname=phpclasswinter2015; port=3306;", "root", "");
         $dbs = $db->prepare('SELECT * FROM signup WHERE email = :email');
 
@@ -56,7 +56,7 @@ class Validation {
         }
     }
 
-    function fullNameIsValid($name) {
+    public function fullNameIsValid($name) {
         if (!empty($name)) {
             return true;
         } else {
@@ -64,7 +64,7 @@ class Validation {
         }
     }
 
-    function passwordIsNotEmpty($pass) {
+    public function passwordIsNotEmpty($pass) {
         if (!empty($pass)) {
             return true;
         } else {
@@ -72,7 +72,7 @@ class Validation {
         }
     }
 
-    function passwordIsValid($pass) {
+    public function passwordIsValid($pass) {
         if ((strlen($pass) >= 5)) {
             return true;
         } else {
