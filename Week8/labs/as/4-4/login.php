@@ -1,22 +1,20 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Login Page
-            <?php if (!empty($_POST)) {
-                echo " - Please fix invalid fields";
-            } ?>
+            <?php if (!empty($_POST)) { echo " - Please fix invalid fields"; } ?>
         </title>
     </head>
     <body>
         <?php
+        include './functions.php';
         include_once './header.php';
-                
-        var_dump($_SESSION['SessionMsg']);
-        var_dump($_SESSION['loggedIn']);
         
-if (!empty($_POST)) {
+        session_start();
+        $_SESSION['loggedin'] = false;
+        
+        if (!empty($_POST)) {
             $email = filter_input(INPUT_POST, 'email');
             $password = filter_input(INPUT_POST, 'password');
         } else {

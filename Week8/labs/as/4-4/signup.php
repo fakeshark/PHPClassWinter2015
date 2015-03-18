@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,11 +5,12 @@
         <title></title>
     </head>
     <body>
+        <?php
+        include './functions.php';
+        include_once './header.php';
+        ?>
         Sign-up!!<br /><br />
         <?php
-        include_once './header.php';
-
-
         $email = filter_input(INPUT_POST, 'email');
         $password = filter_input(INPUT_POST, 'password');
         ?>
