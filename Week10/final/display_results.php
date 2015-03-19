@@ -15,6 +15,7 @@
             $heard_from = filter_input(INPUT_POST, 'heard_from');
             $contact_via = filter_input(INPUT_POST, 'contact_via');
             $comments = filter_input(INPUT_POST, 'comments');
+            $comments = htmlspecialchars($comments);
             
             
         include './classes/Validation.class.php';
